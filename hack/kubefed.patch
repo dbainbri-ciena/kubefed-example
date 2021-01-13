@@ -1,0 +1,17 @@
+/Users/dbainbri/src/multi-cluster/kubefed
+diff --git a/scripts/fix-joined-kind-clusters.sh b/scripts/fix-joined-kind-clusters.sh
+index cb675ad..158fca1 100755
+--- a/scripts/fix-joined-kind-clusters.sh
++++ b/scripts/fix-joined-kind-clusters.sh
+@@ -30,11 +30,6 @@ set -o pipefail
+ # components run in-memory by local e2e tests.
+ LOCAL_TESTING="${LOCAL_TESTING:-}"
+ 
+-if [ "`uname`" != 'Darwin' ]; then
+-  >&2 echo "This script is only intended for use on MacOS"
+-  exit 1
+-fi
+-
+ NS="${KUBEFED_NAMESPACE:-kube-federation-system}"
+ 
+ INSPECT_PATH='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
